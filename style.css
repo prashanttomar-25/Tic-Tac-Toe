@@ -1,45 +1,181 @@
-*{
-    margin: 0%;
-    padding: 0%;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-    background-color: #548687;
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #548687, #3b6f70);
     text-align: center;
+    font-family: Arial, sans-serif;
+    color: white;
 }
 
-.container{
-    height: 70vh;
+/* Main Heading */
+
+h1 {
+    font-size: 7vmin;
+    margin-top: 3vmin;
+    text-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* Turn Text */
+
+.turn {
+    margin-top: 2vmin;
+    font-size: 2.5vmin;
+    font-weight: bold;
+}
+
+#turn-text {
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 1vmin 2vmin;
+    border-radius: 2rem;
+}
+
+/* Game Container */
+
+.container {
+    height: 65vh;
     display: flex;
-     justify-content: center;
-     align-items: center;
+    justify-content: center;
+    align-items: center;
 }
 
-.game{
+/* Game Board */
+
+.game {
     height: 60vmin;
-     width: 60vmin;
-     display: flex;
-     flex-wrap: wrap;
-     justify-content: center;
-     align-items: center;
-     gap: 1.5vmin;
+    width: 60vmin;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 1.5vmin;
 }
 
-.box{
+/* Boxes */
+
+.box {
     height: 18vmin;
     width: 18vmin;
-    border-radius: 1rem;
+
     border: none;
-    box-shadow: 0 0 1rem rgba(0,0,0.1);
+    border-radius: 1rem;
+
+    background-color: #ffffc7;
+
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
+
     font-size: 8vmin;
-    color: rgb(147, 43, 43);
+    font-weight: bold;
+
+    color: #b0413e;
+
+    cursor: pointer;
+
+    transition: 0.2s;
 }
 
-#reset-btn{
-    padding: 1rem;
-    font-size: 1.2rem;
+.box:hover:not(:disabled) {
+    transform: scale(1.05);
+    background-color: #fffde0;
+}
+
+.box:disabled {
+    cursor: not-allowed;
+}
+
+/* Reset & New Game Buttons */
+
+#reset-btn,
+#new-btn {
+    padding: 1rem 2rem;
+
+    font-size: 1.1rem;
+    font-weight: bold;
+
     background-color: #191913;
-    color: #fff;
-    border-radius: 1rem;
+    color: white;
+
     border: none;
+    border-radius: 1rem;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+#reset-btn:hover,
+#new-btn:hover {
+    transform: scale(1.05);
+    background-color: #292923;
+}
+
+/* Winner Message */
+
+.msg-container {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.75);
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 3vmin;
+
+    z-index: 10;
+}
+
+#msg {
+    color: #ffffc7;
+    font-size: 7vmin;
+    font-weight: bold;
+}
+
+/* Hide */
+
+.hide {
+    display: none;
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    h1 {
+        font-size: 10vmin;
+    }
+
+    .game {
+        height: 90vmin;
+        width: 90vmin;
+    }
+
+    .box {
+        height: 27vmin;
+        width: 27vmin;
+        font-size: 12vmin;
+    }
+
+    .turn {
+        font-size: 4vmin;
+    }
+
+    #msg {
+        font-size: 9vmin;
+    }
 }
